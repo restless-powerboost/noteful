@@ -351,6 +351,11 @@
   text-align: left !important;
 }
 
+.qn-note .qn-note-text.qn-hidden,
+.qn-note .qn-note-md.qn-hidden {
+  display: none !important;
+}
+
 .qn-note .qn-note-md .qn-md-empty {
   color: rgba(0, 0, 0, 0.38) !important;
   font-style: italic !important;

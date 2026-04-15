@@ -329,15 +329,15 @@
 
     function enterEdit() {
       body.classList.add('qn-editing');
-      textarea.style.display = '';
-      mdView.style.display = 'none';
+      textarea.classList.remove('qn-hidden');
+      mdView.classList.add('qn-hidden');
       setTimeout(() => textarea.focus(), 0);
     }
     function exitEdit() {
       body.classList.remove('qn-editing');
       updateMdView();
-      textarea.style.display = 'none';
-      mdView.style.display = '';
+      textarea.classList.add('qn-hidden');
+      mdView.classList.remove('qn-hidden');
     }
 
     textarea.addEventListener('input', () => {
@@ -364,11 +364,9 @@
 
     if (settings.markdownEnabled) {
       updateMdView();
-      textarea.style.display = 'none';
-      mdView.style.display = '';
+      textarea.classList.add('qn-hidden');
     } else {
-      textarea.style.display = '';
-      mdView.style.display = 'none';
+      mdView.classList.add('qn-hidden');
     }
 
     makeDraggable(el, header, note.id);
@@ -646,8 +644,8 @@
             const body = el.querySelector('.qn-note-body');
             const mdView = el.querySelector('.qn-note-md');
             body.classList.add('qn-editing');
-            ta.style.display = '';
-            mdView.style.display = 'none';
+            ta.classList.remove('qn-hidden');
+            mdView.classList.add('qn-hidden');
           }
           ta.focus();
         }

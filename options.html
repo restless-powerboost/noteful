@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Noteful – Einstellungen</title>
+  <title>Noteful – Settings</title>
   <link rel="stylesheet" href="options.css">
 </head>
 <body>
@@ -11,17 +11,17 @@
       <img src="icons/icon-48.png" alt="" width="40" height="40">
       <div>
         <h1>Noteful</h1>
-        <p class="subtitle">Einstellungen</p>
+        <p class="subtitle">Settings</p>
       </div>
     </header>
 
     <section class="card">
-      <h2>Verhalten</h2>
+      <h2>Behavior</h2>
 
       <label class="row">
         <div class="row-text">
-          <span class="row-title">Löschen bestätigen</span>
-          <span class="row-desc">Vor dem Löschen einer Notiz nachfragen.</span>
+          <span class="row-title">Confirm delete</span>
+          <span class="row-desc">Ask before deleting a note.</span>
         </div>
         <label class="toggle">
           <input type="checkbox" id="confirmDelete">
@@ -31,8 +31,8 @@
 
       <label class="row">
         <div class="row-text">
-          <span class="row-title">Sync über Google-Konto</span>
-          <span class="row-desc">Notizen über chrome.storage.sync zwischen Geräten teilen (max. ~100 KB).</span>
+          <span class="row-title">Sync via Google account</span>
+          <span class="row-desc">Share notes between devices via chrome.storage.sync (max ~100 KB).</span>
         </div>
         <label class="toggle">
           <input type="checkbox" id="syncEnabled">
@@ -42,8 +42,8 @@
 
       <label class="row">
         <div class="row-text">
-          <span class="row-title">Raster-Ausrichtung</span>
-          <span class="row-desc">Notizen beim Verschieben an ein 20px-Raster andocken.</span>
+          <span class="row-title">Snap to grid</span>
+          <span class="row-desc">Snap notes to a 20px grid while moving.</span>
         </div>
         <label class="toggle">
           <input type="checkbox" id="snapToGrid">
@@ -53,8 +53,8 @@
 
       <label class="row">
         <div class="row-text">
-          <span class="row-title">Markdown-Rendering</span>
-          <span class="row-desc">**fett**, *kursiv*, `code`, Listen, Überschriften. Klick zum Bearbeiten.</span>
+          <span class="row-title">Markdown rendering</span>
+          <span class="row-desc">**bold**, *italic*, `code`, lists, headings. Click to edit.</span>
         </div>
         <label class="toggle">
           <input type="checkbox" id="markdownEnabled">
@@ -64,18 +64,18 @@
     </section>
 
     <section class="card">
-      <h2>Darstellung</h2>
+      <h2>Appearance</h2>
 
       <div class="row">
         <div class="row-text">
-          <span class="row-title">Standard-Farbe für neue Notizen</span>
+          <span class="row-title">Default color for new notes</span>
         </div>
         <div class="color-picker" id="colorPicker"></div>
       </div>
 
       <div class="row">
         <div class="row-text">
-          <span class="row-title">Schriftgröße in Notizen</span>
+          <span class="row-title">Font size in notes</span>
           <span class="row-desc"><span id="fontSizeLabel">13</span> px</span>
         </div>
         <input type="range" id="fontSize" min="11" max="20" step="1">
@@ -83,42 +83,42 @@
     </section>
 
     <section class="card">
-      <h2>Daten</h2>
+      <h2>Data</h2>
 
       <div class="row">
         <div class="row-text">
           <span class="row-title">Export</span>
-          <span class="row-desc">Alle Notizen und Einstellungen als JSON sichern.</span>
+          <span class="row-desc">Back up all notes and settings as JSON.</span>
         </div>
-        <button id="exportBtn" class="btn">Exportieren</button>
+        <button id="exportBtn" class="btn">Export</button>
       </div>
 
       <div class="row">
         <div class="row-text">
           <span class="row-title">Import</span>
-          <span class="row-desc">JSON-Datei importieren. Vorhandene Notizen werden zusammengeführt.</span>
+          <span class="row-desc">Import a JSON file. Existing notes are merged.</span>
         </div>
         <div class="btn-group">
-          <button id="importBtn" class="btn">Importieren</button>
+          <button id="importBtn" class="btn">Import</button>
           <input type="file" id="importFile" accept="application/json" hidden>
         </div>
       </div>
 
       <div class="row">
         <div class="row-text">
-          <span class="row-title">Alle Notizen löschen</span>
-          <span class="row-desc">Entfernt alle gespeicherten Notizen unwiderruflich.</span>
+          <span class="row-title">Delete all notes</span>
+          <span class="row-desc">Permanently removes every stored note.</span>
         </div>
-        <button id="clearBtn" class="btn btn-danger">Löschen</button>
+        <button id="clearBtn" class="btn btn-danger">Delete</button>
       </div>
     </section>
 
     <section class="card">
-      <h2>Tastenkürzel</h2>
-      <p class="hint">Shortcuts können unter <code>chrome://extensions/shortcuts</code> geändert werden.</p>
+      <h2>Keyboard shortcuts</h2>
+      <p class="hint">Shortcuts can be changed at <code>chrome://extensions/shortcuts</code>.</p>
       <ul class="shortcuts">
-        <li><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd> — Neue Notiz auf aktueller Seite</li>
-        <li><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> — Alle Notizen ein-/ausblenden</li>
+        <li><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd> — New note on current page</li>
+        <li><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> — Show/hide all notes</li>
       </ul>
     </section>
 

@@ -1,48 +1,48 @@
-# Noteful — Datenschutzerklärung
+# Noteful — Privacy Policy
 
-**Letzte Aktualisierung:** 2026-04-15
+**Last updated:** 2026-04-15
 
-## Kurzfassung
+## Summary
 
-Noteful speichert deine Notizen lokal in deinem Browser. Es werden keine Daten an externe Server gesendet. Es gibt kein Tracking, keine Analytics, keine Telemetrie.
+Noteful stores your notes locally in your browser. No data is sent to any external server. There is no tracking, no analytics, and no telemetry.
 
-## Welche Daten werden verarbeitet?
+## What data is processed?
 
-Noteful speichert ausschließlich die Inhalte, die du selbst erstellst:
+Noteful only stores content that you create yourself:
 
-- Notiz-Text
-- Position, Größe und Farbe der Notizen
-- URL der Seite, auf der eine Notiz platziert wurde (als Schlüssel, damit sie beim nächsten Besuch wieder erscheint)
-- Optional gesetzte Reminder-Zeitpunkte
-- Deine Einstellungen (Standardfarbe, Schriftgröße, Toggles)
+- Note text
+- Position, size, and color of each note
+- URL of the page where a note was placed (used as the key so the note reappears on your next visit)
+- Optional reminder timestamps
+- Your settings (default color, font size, toggles)
 
-## Wo werden Daten gespeichert?
+## Where is data stored?
 
-**Standardmäßig:** lokal in deinem Browser über die `chrome.storage.local` API. Die Daten verlassen deinen Rechner nicht.
+**By default:** locally in your browser via the `chrome.storage.local` API. The data never leaves your device.
 
-**Optional (Sync):** Wenn du in den Einstellungen „Sync über Google-Konto" aktivierst, werden deine Notizen über die `chrome.storage.sync` API zwischen deinen Chrome-Installationen synchronisiert. Die Übertragung und Speicherung erfolgt dabei direkt durch Google über dein eigenes Google-Konto. Der Entwickler von Noteful hat zu keinem Zeitpunkt Zugriff auf diese Daten. Siehe auch die Google-Datenschutzerklärung: https://policies.google.com/privacy
+**Optional (sync):** If you enable "Sync via Google account" in the settings, your notes are synchronized between your Chrome installations via the `chrome.storage.sync` API. This transfer and storage is handled directly by Google through your own Google account. The developer of Noteful has no access to this data at any point. See also the Google Privacy Policy: https://policies.google.com/privacy
 
-## Werden Daten an Dritte weitergegeben?
+## Is data shared with third parties?
 
-**Nein.** Noteful sendet keine Daten an externe Server. Es gibt keine Analytics, kein Tracking, keine Telemetrie, keine Werbung. Der einzige optionale externe Speicherort ist dein eigenes Google-Konto über die oben genannte Sync-Funktion.
+**No.** Noteful does not send any data to external servers. There are no analytics, no tracking, no telemetry, and no advertising. The only optional external storage location is your own Google account via the sync feature mentioned above.
 
-## Berechtigungen und ihr Zweck
+## Permissions and their purpose
 
-| Berechtigung | Zweck |
+| Permission | Purpose |
 |---|---|
-| `storage` | Notizen und Einstellungen im Browser speichern |
-| `activeTab` | Notizen auf der aktuellen Tab-URL platzieren |
-| `notifications` | Reminder als Chrome-Benachrichtigung anzeigen |
-| `alarms` | Reminder zur geplanten Zeit auslösen |
-| `host_permissions` (`http://*/*`, `https://*/*`) | Notizen als Overlay auf beliebigen Websites einblenden |
+| `storage` | Save notes and settings in the browser |
+| `activeTab` | Place notes on the URL of the current tab |
+| `notifications` | Show reminders as Chrome notifications |
+| `alarms` | Trigger reminders at the scheduled time |
+| `host_permissions` (`http://*/*`, `https://*/*`) | Render notes as an overlay on any website |
 
-## Deine Rechte und Kontrolle
+## Your rights and control
 
-- **Export:** Einstellungen → „Exportieren" lädt alle Notizen als JSON-Datei.
-- **Import:** Einstellungen → „Importieren" führt eine JSON-Datei mit bestehenden Notizen zusammen.
-- **Löschen:** Einstellungen → „Alle Notizen löschen" entfernt sämtliche gespeicherten Notizen unwiderruflich.
-- **Deinstallation:** Beim Entfernen der Erweiterung werden alle lokal gespeicherten Daten automatisch durch Chrome gelöscht.
+- **Export:** Settings → "Export" downloads all your notes as a JSON file.
+- **Import:** Settings → "Import" merges a JSON file with your existing notes.
+- **Delete:** Settings → "Delete all notes" permanently removes every stored note.
+- **Uninstall:** When you remove the extension, Chrome automatically deletes all locally stored data.
 
-## Kontakt
+## Contact
 
-Fragen, Bug-Reports oder Feedback bitte als GitHub Issue im Projekt-Repository eröffnen.
+For questions, bug reports, or feedback, please open a GitHub issue on the project repository.

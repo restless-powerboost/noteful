@@ -43,7 +43,7 @@ async function init() {
     hideAllBtn.disabled = true;
     notesList.classList.add('hidden');
     errorState.classList.remove('hidden');
-    errorState.textContent = 'Notizen funktionieren nur auf http/https-Seiten. Suche bleibt verfügbar.';
+    errorState.textContent = 'Notes only work on http/https pages. Search is still available.';
   } else {
     const u = new URL(currentKey);
     const display = u.hostname + (u.pathname === '/' ? '' : u.pathname);
@@ -149,7 +149,7 @@ function renderItem(note) {
   const eyeBtn = document.createElement('button');
   eyeBtn.className = 'eye-btn';
   eyeBtn.textContent = note.visible ? '\u{1F441}' : '\u2715';
-  eyeBtn.title = note.visible ? 'Auf der Seite ausblenden' : 'Auf der Seite einblenden';
+  eyeBtn.title = note.visible ? 'Hide on page' : 'Show on page';
   eyeBtn.addEventListener('click', () => {
     sendMessage({ type: 'toggleNote', id: note.id });
   });
@@ -160,7 +160,7 @@ function renderItem(note) {
   const textEl = document.createElement('div');
   const hasText = note.text && note.text.trim().length > 0;
   textEl.className = 'note-item-text' + (hasText ? '' : ' empty');
-  textEl.textContent = hasText ? note.text : '(leere Notiz)';
+  textEl.textContent = hasText ? note.text : '(empty note)';
   textEl.title = hasText ? note.text : '';
 
   const meta = document.createElement('div');
@@ -173,7 +173,7 @@ function renderItem(note) {
   if (!note.visible) {
     const label = document.createElement('span');
     label.className = 'hidden-label';
-    label.textContent = 'versteckt';
+    label.textContent = 'hidden';
     meta.appendChild(label);
   }
   if (note.domainWide) {
@@ -185,7 +185,7 @@ function renderItem(note) {
   if (note.reminderAt && note.reminderAt > Date.now()) {
     const label = document.createElement('span');
     label.className = 'reminder-label';
-    label.textContent = 'erinnerung';
+    label.textContent = 'reminder';
     meta.appendChild(label);
   }
 
@@ -195,9 +195,9 @@ function renderItem(note) {
   const delBtn = document.createElement('button');
   delBtn.className = 'del-btn';
   delBtn.textContent = '\u00d7';
-  delBtn.title = 'Löschen';
+  delBtn.title = 'Delete';
   delBtn.addEventListener('click', () => {
-    if (settings.confirmDelete && !confirm('Notiz wirklich löschen?')) return;
+    if (settings.confirmDelete && !confirm('Really delete this note?')) return;
     stashUndo(note, currentKey);
     sendMessage({ type: 'deleteNote', id: note.id, fromPopup: true });
   });
@@ -218,7 +218,7 @@ function renderSearchItem(note, key) {
   const textEl = document.createElement('div');
   const hasText = note.text && note.text.trim().length > 0;
   textEl.className = 'note-item-text' + (hasText ? '' : ' empty');
-  textEl.textContent = hasText ? note.text : '(leere Notiz)';
+  textEl.textContent = hasText ? note.text : '(empty note)';
   textEl.title = hasText ? note.text : '';
 
   const urlEl = document.createElement('div');
@@ -237,7 +237,7 @@ function renderSearchItem(note, key) {
   const openBtn = document.createElement('button');
   openBtn.className = 'open-btn';
   openBtn.textContent = '\u2197';
-  openBtn.title = 'Seite öffnen';
+  openBtn.title = 'Open page';
   openBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     chrome.tabs.create({ url: key });
@@ -252,7 +252,7 @@ function renderSearchItem(note, key) {
 
 function stashUndo(note, key) {
   pendingUndo = { note: { ...note }, key };
-  undoText.textContent = 'Notiz gelöscht';
+  undoText.textContent = 'Note deleted';
   undoToast.classList.remove('hidden');
   clearTimeout(stashUndo._t);
   stashUndo._t = setTimeout(hideUndo, 5000);
@@ -280,7 +280,7 @@ undoBtn.addEventListener('click', async () => {
     }
   } catch (e) {
     errorState.classList.remove('hidden');
-    errorState.textContent = 'Wiederherstellen fehlgeschlagen.';
+    errorState.textContent = 'Restore failed.';
   }
 });
 
@@ -289,7 +289,7 @@ async function sendMessage(msg) {
     await chrome.tabs.sendMessage(currentTab.id, msg);
   } catch (e) {
     errorState.classList.remove('hidden');
-    errorState.textContent = 'Seite neu laden, damit Noteful aktiv wird.';
+    errorState.textContent = 'Reload the page to activate Noteful.';
     console.error('Noteful:', e);
   }
 }

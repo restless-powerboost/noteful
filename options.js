@@ -36,7 +36,7 @@ function buildColorPicker() {
     btn.addEventListener('click', async () => {
       settings = await S.setSettings({ defaultColor: key });
       buildColorPicker();
-      showStatus('Gespeichert');
+      showStatus('Saved');
     });
     els.colorPicker.appendChild(btn);
   }
@@ -56,7 +56,7 @@ async function load() {
 function wireToggle(el, key) {
   el.addEventListener('change', async () => {
     settings = await S.setSettings({ [key]: el.checked });
-    showStatus('Gespeichert');
+    showStatus('Saved');
   });
 }
 
@@ -76,16 +76,16 @@ els.syncEnabled.addEventListener('change', async () => {
       const size = new Blob([JSON.stringify(merged)]).size;
       if (size > 90000) {
         els.syncEnabled.checked = false;
-        showStatus('Zu viele Notizen (> 90 KB) für Sync', true);
+        showStatus('Too many notes (> 90 KB) for sync', true);
         return;
       }
       await chrome.storage.sync.set({ [S.STORAGE_KEY]: merged });
     }
     settings = await S.setSettings({ syncEnabled: enabling });
-    showStatus(enabling ? 'Sync aktiviert' : 'Sync deaktiviert');
+    showStatus(enabling ? 'Sync enabled' : 'Sync disabled');
   } catch (e) {
     els.syncEnabled.checked = !enabling;
-    showStatus('Fehler: ' + e.message, true);
+    showStatus('Error: ' + e.message, true);
   }
 });
 
@@ -94,7 +94,7 @@ els.fontSize.addEventListener('input', () => {
 });
 els.fontSize.addEventListener('change', async () => {
   settings = await S.setSettings({ fontSize: Number(els.fontSize.value) });
-  showStatus('Gespeichert');
+  showStatus('Saved');
 });
 
 function mergeAll(a, b) {
@@ -132,9 +132,9 @@ els.exportBtn.addEventListener('click', async () => {
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
-    showStatus('Exportiert');
+    showStatus('Exported');
   } catch (e) {
-    showStatus('Export fehlgeschlagen: ' + e.message, true);
+    showStatus('Export failed: ' + e.message, true);
   }
 });
 
@@ -147,7 +147,7 @@ els.importFile.addEventListener('change', async () => {
     const text = await file.text();
     const data = JSON.parse(text);
     if (!data || typeof data !== 'object' || !data.notes) {
-      throw new Error('Ungültiges Format');
+      throw new Error('Invalid format');
     }
     const current = await S.getAllNotes(settings);
     const merged = mergeAll(current, data.notes);
@@ -161,22 +161,22 @@ els.importFile.addEventListener('change', async () => {
       settings = await S.setSettings(patch);
       await load();
     }
-    showStatus('Importiert');
+    showStatus('Imported');
   } catch (e) {
-    showStatus('Import fehlgeschlagen: ' + e.message, true);
+    showStatus('Import failed: ' + e.message, true);
   } finally {
     els.importFile.value = '';
   }
 });
 
 els.clearBtn.addEventListener('click', async () => {
-  if (!confirm('Wirklich ALLE Notizen löschen? Diese Aktion kann nicht rückgängig gemacht werden.')) return;
+  if (!confirm('Really delete ALL notes? This action cannot be undone.')) return;
   try {
     await chrome.storage.local.remove(S.STORAGE_KEY);
     await chrome.storage.sync.remove(S.STORAGE_KEY);
-    showStatus('Alle Notizen gelöscht');
+    showStatus('All notes deleted');
   } catch (e) {
-    showStatus('Fehler: ' + e.message, true);
+    showStatus('Error: ' + e.message, true);
   }
 });
 

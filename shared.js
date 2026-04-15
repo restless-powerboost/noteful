@@ -64,7 +64,7 @@
 
   function formatDate(ts) {
     const d = new Date(ts);
-    return d.toLocaleString('de-DE', {
+    return d.toLocaleString('en-US', {
       day: '2-digit', month: '2-digit', year: '2-digit',
       hour: '2-digit', minute: '2-digit',
     });

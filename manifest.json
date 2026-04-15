@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Noteful",
   "version": "1.0.0",
-  "description": "Sticky Notes auf jeder Website — verschiebbar, skalierbar, Markdown, Reminder, Sync.",
+  "description": "Sticky notes on any website — draggable, resizable, Markdown, reminders, sync.",
   "permissions": ["storage", "activeTab", "notifications", "alarms"],
   "action": {
     "default_popup": "popup.html",
@@ -33,14 +33,14 @@
         "default": "Ctrl+Shift+E",
         "mac": "Command+Shift+E"
       },
-      "description": "Neue Notiz erstellen"
+      "description": "Create new note"
     },
     "toggle-all": {
       "suggested_key": {
         "default": "Ctrl+Shift+S",
         "mac": "Command+Shift+S"
       },
-      "description": "Alle Notizen ein-/ausblenden"
+      "description": "Show/hide all notes"
     }
   },
   "content_scripts": [

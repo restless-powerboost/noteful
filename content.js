@@ -121,7 +121,7 @@
       } catch (e) {
         console.error('Noteful save error:', e);
         if (settings.syncEnabled && /QUOTA/i.test(String(e))) {
-          showInPageToast('Sync-Speicher voll. Bitte deaktiviere Sync in den Einstellungen.', 8000);
+          showInPageToast('Sync storage full. Please disable sync in settings.', 8000);
         }
       }
     }).catch(err => console.error('Noteful save chain error:', err));
@@ -214,7 +214,7 @@
 
     const colorBtn = document.createElement('button');
     colorBtn.className = 'qn-btn qn-color-btn';
-    colorBtn.title = 'Farbe ändern';
+    colorBtn.title = 'Change color';
     const colorDot = document.createElement('span');
     colorDot.className = 'qn-color-dot';
     colorDot.style.backgroundColor = COLOR_VALUES[color];
@@ -230,7 +230,7 @@
     reminderBtn.className = 'qn-btn qn-reminder-btn';
     if (note.reminderAt && note.reminderAt > Date.now()) reminderBtn.classList.add('qn-active');
     reminderBtn.textContent = '\u23F0';
-    reminderBtn.title = note.reminderAt ? 'Erinnerung: ' + new Date(note.reminderAt).toLocaleString('de-DE') : 'Erinnerung setzen';
+    reminderBtn.title = note.reminderAt ? 'Reminder: ' + new Date(note.reminderAt).toLocaleString('en-US') : 'Set reminder';
     const reminderPop = buildReminderPopover(note);
     document.body.appendChild(reminderPop);
     el._qnReminderPop = reminderPop;
@@ -245,7 +245,7 @@
     domainBtn.className = 'qn-btn qn-domain-btn';
     if (note.domainWide) domainBtn.classList.add('qn-active');
     domainBtn.textContent = '\u2316';
-    domainBtn.title = note.domainWide ? 'Gilt für gesamte Domain — zum Zurückstellen klicken' : 'Für gesamte Domain anzeigen';
+    domainBtn.title = note.domainWide ? 'Applies to entire domain — click to unset' : 'Apply to entire domain';
     domainBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       e.preventDefault();
@@ -257,7 +257,7 @@
       const anchorBtn = document.createElement('button');
       anchorBtn.className = 'qn-btn qn-anchor-btn qn-active';
       anchorBtn.textContent = '\u2693';
-      anchorBtn.title = 'An Element verankert — klicken zum Lösen';
+      anchorBtn.title = 'Anchored to element — click to detach';
       anchorBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         e.preventDefault();
@@ -269,7 +269,7 @@
     const minBtn = document.createElement('button');
     minBtn.className = 'qn-btn qn-min-btn';
     minBtn.textContent = note.collapsed ? '\u25B4' : '\u25BE';
-    minBtn.title = note.collapsed ? 'Ausklappen' : 'Einklappen';
+    minBtn.title = note.collapsed ? 'Expand' : 'Collapse';
     minBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       e.preventDefault();
@@ -280,7 +280,7 @@
     const hideBtn = document.createElement('button');
     hideBtn.className = 'qn-btn';
     hideBtn.textContent = '\u2212';
-    hideBtn.title = 'Ausblenden';
+    hideBtn.title = 'Hide';
     hideBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       e.preventDefault();
@@ -291,11 +291,11 @@
     const delBtn = document.createElement('button');
     delBtn.className = 'qn-btn';
     delBtn.textContent = '\u00d7';
-    delBtn.title = 'Löschen';
+    delBtn.title = 'Delete';
     delBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       e.preventDefault();
-      if (settings.confirmDelete && !confirm('Notiz löschen?')) return;
+      if (settings.confirmDelete && !confirm('Delete this note?')) return;
       deleteNoteWithUndo(note.id);
     });
     actions.appendChild(delBtn);
@@ -310,7 +310,7 @@
     const textarea = document.createElement('textarea');
     textarea.className = 'qn-note-text';
     textarea.value = note.text || '';
-    textarea.placeholder = 'Notiz...';
+    textarea.placeholder = 'Note...';
     textarea.spellcheck = false;
     textarea.style.fontSize = (settings.fontSize || 13) + 'px';
 
@@ -321,7 +321,7 @@
     function updateMdView() {
       const hasText = (textarea.value || '').trim().length > 0;
       if (!hasText) {
-        mdView.innerHTML = '<span class="qn-md-empty">Notiz...</span>';
+        mdView.innerHTML = '<span class="qn-md-empty">Empty note…</span>';
       } else {
         mdView.innerHTML = S.renderMarkdown(textarea.value);
       }
@@ -415,7 +415,7 @@
 
     const title = document.createElement('div');
     title.className = 'qn-rem-title';
-    title.textContent = 'Erinnerung';
+    title.textContent = 'Reminder';
     pop.appendChild(title);
 
     const input = document.createElement('input');
@@ -428,14 +428,14 @@
 
     const setBtn = document.createElement('button');
     setBtn.className = 'qn-rem-set';
-    setBtn.textContent = 'Setzen';
+    setBtn.textContent = 'Set';
     setBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       e.preventDefault();
       if (!input.value) return;
       const ts = new Date(input.value).getTime();
       if (isNaN(ts) || ts < Date.now()) {
-        alert('Bitte ein Datum in der Zukunft wählen.');
+        alert('Please choose a date in the future.');
         return;
       }
       setReminder(note.id, ts);
@@ -445,7 +445,7 @@
 
     const clearBtn = document.createElement('button');
     clearBtn.className = 'qn-rem-clear';
-    clearBtn.textContent = 'Löschen';
+    clearBtn.textContent = 'Clear';
     clearBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       e.preventDefault();
@@ -670,7 +670,7 @@
     const removed = deleteNoteRaw(id);
     if (!removed) return;
     saveNotes();
-    showInPageToast('Notiz gelöscht', 5000, () => {
+    showInPageToast('Note deleted', 5000, () => {
       notes.push(removed);
       renderNote(removed);
       if (removed.reminderAt && removed.reminderAt > Date.now()) {
@@ -717,7 +717,7 @@
       const btn = el.querySelector('.qn-min-btn');
       if (btn) {
         btn.textContent = note.collapsed ? '\u25B4' : '\u25BE';
-        btn.title = note.collapsed ? 'Ausklappen' : 'Einklappen';
+        btn.title = note.collapsed ? 'Expand' : 'Collapse';
       }
     }
     saveNotes();
@@ -732,7 +732,7 @@
       const btn = el.querySelector('.qn-domain-btn');
       if (btn) {
         btn.classList.toggle('qn-active', note.domainWide);
-        btn.title = note.domainWide ? 'Gilt für gesamte Domain — zum Zurückstellen klicken' : 'Für gesamte Domain anzeigen';
+        btn.title = note.domainWide ? 'Applies to entire domain — click to unset' : 'Apply to entire domain';
       }
     }
     saveNotes();
@@ -772,7 +772,7 @@
       const btn = el.querySelector('.qn-reminder-btn');
       if (btn) {
         btn.classList.toggle('qn-active', !!when);
-        btn.title = when ? 'Erinnerung: ' + new Date(when).toLocaleString('de-DE') : 'Erinnerung setzen';
+        btn.title = when ? 'Reminder: ' + new Date(when).toLocaleString('en-US') : 'Set reminder';
       }
     }
     saveNotes();
@@ -815,7 +815,7 @@
     if (onUndo) {
       const btn = document.createElement('button');
       btn.className = 'qn-toast-btn';
-      btn.textContent = 'Rückgängig';
+      btn.textContent = 'Undo';
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
         e.preventDefault();

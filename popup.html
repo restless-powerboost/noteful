@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="popup.css">
@@ -9,25 +9,25 @@
     <h1 id="domain">Noteful</h1>
   </header>
   <div class="toolbar">
-    <button id="newBtn" class="btn-primary">+ Neue Notiz</button>
+    <button id="newBtn" class="btn-primary">+ New note</button>
     <div class="toolbar-row">
-      <button id="showAllBtn" class="btn-ghost">Alle einblenden</button>
-      <button id="hideAllBtn" class="btn-ghost">Alle ausblenden</button>
+      <button id="showAllBtn" class="btn-ghost">Show all</button>
+      <button id="hideAllBtn" class="btn-ghost">Hide all</button>
     </div>
     <div class="search-wrap">
-      <input type="search" id="searchInput" placeholder="Alle Notizen durchsuchen...">
+      <input type="search" id="searchInput" placeholder="Search all notes...">
     </div>
   </div>
   <ul id="notesList"></ul>
-  <p id="emptyState" class="hidden">Noch keine Notizen auf dieser Seite.</p>
-  <p id="noResults" class="hidden">Keine Treffer.</p>
+  <p id="emptyState" class="hidden">No notes on this page yet.</p>
+  <p id="noResults" class="hidden">No matches.</p>
   <p id="errorState" class="hidden"></p>
   <footer class="footer">
-    <button id="optionsBtn" class="link-btn">Einstellungen…</button>
+    <button id="optionsBtn" class="link-btn">Settings…</button>
   </footer>
   <div id="undoToast" class="toast hidden">
-    <span id="undoText">Notiz gelöscht</span>
-    <button id="undoBtn">Rückgängig</button>
+    <span id="undoText">Note deleted</span>
+    <button id="undoBtn">Undo</button>
   </div>
   <script src="shared.js"></script>
   <script src="popup.js"></script>

@@ -1,62 +1,62 @@
 # Noteful
 
-Sticky Notes auf jeder Website — verschiebbar, skalierbar, Markdown, Reminder, Sync.
+Sticky notes on any website — draggable, resizable, Markdown, reminders, sync.
 
-Eine Chrome-Extension (Manifest V3), die Post-it-artige Notizen direkt als Overlay auf beliebige http(s)-Seiten legt. Ohne Account, ohne Tracking, komplett offline nutzbar.
+A Chrome extension (Manifest V3) that overlays Post-it-style notes on any http(s) page. No account, no tracking, fully usable offline.
 
 ## Features
 
-- Notizen an beliebiger Position auf jeder Website platzieren
-- Drag & Drop, frei skalierbar, 6 Farben
-- Markdown-Rendering (fett, kursiv, Code, Listen, Überschriften, Links)
-- Reminder mit echten Chrome-Benachrichtigungen
-- Domain-weite Notizen (auf allen Seiten derselben Domain sichtbar)
-- Auto-Anchor: Notiz folgt dem ausgewählten Text auch bei Layout-Änderungen
-- Minimieren, Verstecken, Löschen mit 5-Sekunden-Undo
-- Snap-to-Grid (optional)
-- Export / Import als JSON (Backup oder Migration)
-- Optionaler Sync zwischen Geräten via `chrome.storage.sync`
-- Volltextsuche über alle Notizen im Popup
-- Tastenkürzel: `Ctrl+Shift+E` (neue Notiz), `Ctrl+Shift+S` (alle ein/ausblenden)
+- Place notes at any position on any website
+- Drag & drop, freely resizable, 6 colors
+- Markdown rendering (bold, italic, code, lists, headings, links)
+- Reminders with native Chrome notifications
+- Domain-wide notes (visible on every page of the same domain)
+- Auto-anchor: notes follow the selected text even when the layout changes
+- Minimize, hide, or delete with 5-second undo
+- Snap-to-grid (optional)
+- JSON export / import (backup or migration)
+- Optional sync between devices via `chrome.storage.sync`
+- Full-text search across all notes from the popup
+- Keyboard shortcuts: `Ctrl+Shift+E` (new note), `Ctrl+Shift+S` (show/hide all)
 
-## Installation (Entwicklung)
+## Installation (development)
 
-1. Repo klonen oder als ZIP laden
-2. Chrome öffnen → `chrome://extensions`
-3. Entwicklermodus oben rechts aktivieren
-4. „Entpackte Erweiterung laden" → diesen Ordner auswählen
+1. Clone or download this repo as a ZIP
+2. Open Chrome → `chrome://extensions`
+3. Enable Developer mode (top right)
+4. Click "Load unpacked" and select this folder
 
-Die Extension erscheint in der Toolbar. Öffne eine beliebige http/https-Seite und klicke auf das Icon, um deine erste Notiz zu erstellen.
+The extension appears in the toolbar. Open any http/https page and click the icon to create your first note.
 
-## Projektstruktur
+## Project structure
 
 ```
-manifest.json     Manifest V3 Konfiguration
-background.js     Service Worker (Commands, Alarms, Notifications)
-shared.js         Gemeinsame Helpers (Storage, Markdown, Farben)
-content.js        Overlay-Logik auf der Zielseite
-content.css       Styles für Notizen auf der Seite
-popup.html/.js/.css    Toolbar-Popup (Neu, Suche, Alle-Liste)
-options.html/.js/.css  Einstellungsseite (Export/Import, Sync, Farben)
-icons/            PNG-Icons in 16/32/48/128
-tools/gen_icons.py     Python-Skript zum Neubauen der Icons (optional)
+manifest.json          Manifest V3 configuration
+background.js          Service worker (commands, alarms, notifications)
+shared.js              Shared helpers (storage, Markdown, colors)
+content.js             Overlay logic on target pages
+content.css            Styles for notes on the page
+popup.html/.js/.css    Toolbar popup (new, search, list)
+options.html/.js/.css  Settings page (export/import, sync, colors)
+icons/                 PNG icons in 16/32/48/128
+tools/gen_icons.py     Python script to rebuild icons (optional)
 ```
 
-## Icons neu bauen
+## Rebuilding icons
 
-Falls du die Icons anpassen willst:
+If you want to tweak the icons:
 
 ```bash
 cd tools
 python gen_icons.py
 ```
 
-Benötigt Python 3 mit `Pillow` (`pip install Pillow`).
+Requires Python 3 with `Pillow` (`pip install Pillow`).
 
-## Datenschutz
+## Privacy
 
-Keine Server, kein Tracking, keine Analytics. Alle Daten liegen lokal im Browser (`chrome.storage.local`) oder optional in deinem Google-Konto (`chrome.storage.sync`, nur wenn du es aktivierst). Details in [PRIVACY.md](PRIVACY.md).
+No servers, no tracking, no analytics. All data lives locally in your browser (`chrome.storage.local`) or optionally in your own Google account (`chrome.storage.sync`, only when you enable it). See [PRIVACY.md](PRIVACY.md) for details.
 
-## Lizenz
+## License
 
 [MIT](LICENSE)

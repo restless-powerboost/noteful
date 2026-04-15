@@ -57,8 +57,8 @@ chrome.alarms.onAlarm.addListener(async (alarm) => {
   }
   if (!foundNote) return;
 
-  const title = 'Noteful Erinnerung';
-  const body = (foundNote.text || '(leere Notiz)').slice(0, 200);
+  const title = 'Noteful reminder';
+  const body = (foundNote.text || '(empty note)').slice(0, 200);
   try {
     await chrome.notifications.create('qn-' + noteId + '-' + Date.now(), {
       type: 'basic',

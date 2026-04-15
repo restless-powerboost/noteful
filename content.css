@@ -1,0 +1,489 @@
+.qn-note {
+  box-sizing: border-box !important;
+  position: absolute !important;
+  border: 1px solid #d4b52c !important;
+  border-radius: 3px !important;
+  box-shadow: 2px 4px 14px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(255, 255, 255, 0.35) inset !important;
+  min-width: 200px !important;
+  min-height: 120px !important;
+  z-index: 2147483646 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, sans-serif !important;
+  font-size: 13px !important;
+  color: #1f2937 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  resize: both !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+  opacity: 0.98 !important;
+  background: linear-gradient(175deg, #fff8a0 0%, #fde873 100%) !important;
+}
+
+.qn-note.qn-minimized {
+  min-height: 0 !important;
+  resize: none !important;
+  height: auto !important;
+  overflow: hidden !important;
+}
+
+.qn-note.qn-minimized .qn-note-body { display: none !important; }
+
+.qn-note.qn-anchored .qn-note-header { cursor: default !important; }
+
+.qn-note.qn-color-yellow {
+  background: linear-gradient(175deg, #fff8a0 0%, #fde873 100%) !important;
+  border-color: #d4b52c !important;
+}
+
+.qn-note.qn-color-pink {
+  background: linear-gradient(175deg, #fecdd3 0%, #fda4af 100%) !important;
+  border-color: #e11d48 !important;
+}
+
+.qn-note.qn-color-green {
+  background: linear-gradient(175deg, #bbf7d0 0%, #86efac 100%) !important;
+  border-color: #16a34a !important;
+}
+
+.qn-note.qn-color-blue {
+  background: linear-gradient(175deg, #bae6fd 0%, #7dd3fc 100%) !important;
+  border-color: #0284c7 !important;
+}
+
+.qn-note.qn-color-orange {
+  background: linear-gradient(175deg, #fed7aa 0%, #fdba74 100%) !important;
+  border-color: #ea580c !important;
+}
+
+.qn-note.qn-color-purple {
+  background: linear-gradient(175deg, #e9d5ff 0%, #c4b5fd 100%) !important;
+  border-color: #9333ea !important;
+}
+
+.qn-note *,
+.qn-note *::before,
+.qn-note *::after {
+  box-sizing: border-box !important;
+}
+
+.qn-note-header {
+  padding: 5px 6px !important;
+  margin: 0 !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  background: rgba(0, 0, 0, 0.08) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+  cursor: grab !important;
+  user-select: none !important;
+  flex-shrink: 0 !important;
+  font-family: inherit !important;
+  min-height: 24px !important;
+  gap: 4px !important;
+}
+
+.qn-note.qn-dragging {
+  box-shadow: 4px 8px 22px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.35) inset !important;
+}
+
+.qn-note.qn-dragging .qn-note-header {
+  cursor: grabbing !important;
+}
+
+.qn-note .qn-note-date {
+  font-size: 11px !important;
+  color: rgba(0, 0, 0, 0.62) !important;
+  font-weight: 500 !important;
+  font-family: inherit !important;
+  letter-spacing: 0 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+}
+
+.qn-note-actions {
+  display: flex !important;
+  gap: 2px !important;
+  align-items: center !important;
+  flex-shrink: 0 !important;
+}
+
+.qn-note .qn-btn {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  cursor: pointer !important;
+  font-size: 13px !important;
+  line-height: 1 !important;
+  color: rgba(0, 0, 0, 0.55) !important;
+  border-radius: 3px !important;
+  font-family: inherit !important;
+  font-weight: bold !important;
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+  min-height: 20px !important;
+  max-width: 20px !important;
+  max-height: 20px !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  box-shadow: none !important;
+  outline: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  text-decoration: none !important;
+}
+
+.qn-note .qn-btn:hover {
+  background: rgba(0, 0, 0, 0.12) !important;
+  color: rgba(0, 0, 0, 0.85) !important;
+}
+
+.qn-note .qn-btn.qn-active {
+  color: #b45309 !important;
+  background: rgba(234, 179, 8, 0.35) !important;
+}
+
+.qn-note .qn-color-btn {
+  padding: 0 !important;
+}
+
+.qn-color-dot {
+  display: block !important;
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(0, 0, 0, 0.4) !important;
+  box-sizing: border-box !important;
+  pointer-events: none !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15) !important;
+}
+
+.qn-color-popover,
+.qn-reminder-popover {
+  position: absolute !important;
+  display: none !important;
+  flex-direction: row !important;
+  gap: 5px !important;
+  padding: 7px !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  border-radius: 6px !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25) !important;
+  z-index: 2147483647 !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+  width: auto !important;
+  height: auto !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, sans-serif !important;
+  pointer-events: auto !important;
+  color: #1f2937 !important;
+}
+
+.qn-color-popover.qn-open,
+.qn-reminder-popover.qn-open {
+  display: flex !important;
+}
+
+.qn-reminder-popover {
+  flex-direction: column !important;
+  gap: 8px !important;
+  padding: 10px !important;
+  min-width: 220px !important;
+}
+
+.qn-reminder-popover .qn-rem-title {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: #374151 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.4px !important;
+}
+
+.qn-reminder-popover .qn-rem-input {
+  font-family: inherit !important;
+  font-size: 13px !important;
+  padding: 6px 8px !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 4px !important;
+  color: #1f2937 !important;
+  background: #fff !important;
+  outline: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.qn-reminder-popover .qn-rem-input:focus {
+  border-color: #eab308 !important;
+}
+
+.qn-reminder-popover .qn-rem-btns {
+  display: flex !important;
+  gap: 6px !important;
+  justify-content: flex-end !important;
+}
+
+.qn-reminder-popover button {
+  font-family: inherit !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  padding: 6px 12px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  border: 1px solid #d1d5db !important;
+  background: #f3f4f6 !important;
+  color: #1f2937 !important;
+  margin: 0 !important;
+  line-height: 1 !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.qn-reminder-popover button:hover { background: #e5e7eb !important; }
+
+.qn-reminder-popover .qn-rem-set {
+  background: #eab308 !important;
+  color: #1f2937 !important;
+  border-color: #eab308 !important;
+  font-weight: 600 !important;
+}
+
+.qn-reminder-popover .qn-rem-set:hover { background: #facc15 !important; }
+
+.qn-color-popover .qn-color-swatch {
+  width: 20px !important;
+  height: 20px !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(0, 0, 0, 0.25) !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  cursor: pointer !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15) !important;
+  transition: transform 0.12s ease, box-shadow 0.12s ease !important;
+  display: block !important;
+  min-width: 20px !important;
+  min-height: 20px !important;
+  max-width: 20px !important;
+  max-height: 20px !important;
+  box-sizing: border-box !important;
+  font: inherit !important;
+  line-height: 1 !important;
+  outline: none !important;
+  color: transparent !important;
+}
+
+.qn-color-popover .qn-color-swatch:hover {
+  transform: scale(1.18) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25) !important;
+}
+
+.qn-note .qn-note-body {
+  flex: 1 1 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+.qn-note .qn-note-text {
+  flex: 1 1 auto !important;
+  padding: 8px 10px !important;
+  margin: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  resize: none !important;
+  font-family: inherit !important;
+  font-size: 13px !important;
+  color: #1f2937 !important;
+  line-height: 1.45 !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-width: none !important;
+  max-height: none !important;
+  box-shadow: none !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  font-weight: normal !important;
+  font-style: normal !important;
+  text-align: left !important;
+  text-decoration: none !important;
+  display: block !important;
+  overflow: auto !important;
+}
+
+.qn-note .qn-note-text::placeholder {
+  color: rgba(0, 0, 0, 0.38) !important;
+  font-style: italic !important;
+}
+
+.qn-note .qn-note-md {
+  flex: 1 1 auto !important;
+  padding: 8px 10px !important;
+  margin: 0 !important;
+  background: transparent !important;
+  font-family: inherit !important;
+  font-size: 13px !important;
+  color: #1f2937 !important;
+  line-height: 1.45 !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: auto !important;
+  cursor: text !important;
+  text-align: left !important;
+}
+
+.qn-note .qn-note-md .qn-md-empty {
+  color: rgba(0, 0, 0, 0.38) !important;
+  font-style: italic !important;
+}
+
+.qn-note .qn-note-md strong {
+  font-weight: 700 !important;
+  color: inherit !important;
+  background: transparent !important;
+}
+
+.qn-note .qn-note-md em {
+  font-style: italic !important;
+  color: inherit !important;
+  background: transparent !important;
+}
+
+.qn-note .qn-note-md code {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace !important;
+  background: rgba(0, 0, 0, 0.09) !important;
+  padding: 1px 4px !important;
+  border-radius: 3px !important;
+  font-size: 12px !important;
+  color: #111 !important;
+}
+
+.qn-note .qn-note-md pre {
+  background: rgba(0, 0, 0, 0.09) !important;
+  padding: 6px 8px !important;
+  border-radius: 4px !important;
+  margin: 4px 0 !important;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace !important;
+  font-size: 12px !important;
+  color: #111 !important;
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
+}
+
+.qn-note .qn-note-md ul {
+  margin: 4px 0 4px 18px !important;
+  padding: 0 !important;
+  list-style: disc outside !important;
+}
+
+.qn-note .qn-note-md li {
+  margin: 2px 0 !important;
+  padding: 0 !important;
+}
+
+.qn-note .qn-note-md h1,
+.qn-note .qn-note-md h2,
+.qn-note .qn-note-md h3 {
+  margin: 4px 0 !important;
+  padding: 0 !important;
+  font-weight: 700 !important;
+  color: inherit !important;
+  line-height: 1.2 !important;
+}
+
+.qn-note .qn-note-md h1 { font-size: 16px !important; }
+.qn-note .qn-note-md h2 { font-size: 15px !important; }
+.qn-note .qn-note-md h3 { font-size: 14px !important; }
+
+.qn-note .qn-note-md a {
+  color: #1d4ed8 !important;
+  text-decoration: underline !important;
+  background: transparent !important;
+}
+
+.qn-note .qn-note-md div {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  display: block !important;
+  color: inherit !important;
+}
+
+.qn-note .qn-note-md br {
+  display: block !important;
+  content: "" !important;
+  margin: 2px 0 !important;
+}
+
+.qn-toast {
+  box-sizing: border-box !important;
+  position: fixed !important;
+  left: 50% !important;
+  bottom: 24px !important;
+  transform: translateX(-50%) !important;
+  background: #0f0f17 !important;
+  color: #e4e4e7 !important;
+  border: 1px solid #3f3f52 !important;
+  border-radius: 8px !important;
+  padding: 10px 14px !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  line-height: 1.2 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+  z-index: 2147483647 !important;
+  margin: 0 !important;
+  pointer-events: auto !important;
+  max-width: 320px !important;
+  animation: qn-toast-in 0.2s ease-out !important;
+}
+
+.qn-toast .qn-toast-btn {
+  background: #eab308 !important;
+  color: #1f2937 !important;
+  border: none !important;
+  padding: 5px 12px !important;
+  font-family: inherit !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+}
+
+.qn-toast .qn-toast-btn:hover { background: #facc15 !important; }
+
+@keyframes qn-toast-in {
+  from { opacity: 0; transform: translate(-50%, 8px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Noteful – Einstellungen</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <main>
+    <header>
+      <img src="icons/icon-48.png" alt="" width="40" height="40">
+      <div>
+        <h1>Noteful</h1>
+        <p class="subtitle">Einstellungen</p>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2>Verhalten</h2>
+
+      <label class="row">
+        <div class="row-text">
+          <span class="row-title">Löschen bestätigen</span>
+          <span class="row-desc">Vor dem Löschen einer Notiz nachfragen.</span>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="confirmDelete">
+          <span class="toggle-slider"></span>
+        </label>
+      </label>
+
+      <label class="row">
+        <div class="row-text">
+          <span class="row-title">Sync über Google-Konto</span>
+          <span class="row-desc">Notizen über chrome.storage.sync zwischen Geräten teilen (max. ~100 KB).</span>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="syncEnabled">
+          <span class="toggle-slider"></span>
+        </label>
+      </label>
+
+      <label class="row">
+        <div class="row-text">
+          <span class="row-title">Raster-Ausrichtung</span>
+          <span class="row-desc">Notizen beim Verschieben an ein 20px-Raster andocken.</span>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="snapToGrid">
+          <span class="toggle-slider"></span>
+        </label>
+      </label>
+
+      <label class="row">
+        <div class="row-text">
+          <span class="row-title">Markdown-Rendering</span>
+          <span class="row-desc">**fett**, *kursiv*, `code`, Listen, Überschriften. Klick zum Bearbeiten.</span>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="markdownEnabled">
+          <span class="toggle-slider"></span>
+        </label>
+      </label>
+    </section>
+
+    <section class="card">
+      <h2>Darstellung</h2>
+
+      <div class="row">
+        <div class="row-text">
+          <span class="row-title">Standard-Farbe für neue Notizen</span>
+        </div>
+        <div class="color-picker" id="colorPicker"></div>
+      </div>
+
+      <div class="row">
+        <div class="row-text">
+          <span class="row-title">Schriftgröße in Notizen</span>
+          <span class="row-desc"><span id="fontSizeLabel">13</span> px</span>
+        </div>
+        <input type="range" id="fontSize" min="11" max="20" step="1">
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Daten</h2>
+
+      <div class="row">
+        <div class="row-text">
+          <span class="row-title">Export</span>
+          <span class="row-desc">Alle Notizen und Einstellungen als JSON sichern.</span>
+        </div>
+        <button id="exportBtn" class="btn">Exportieren</button>
+      </div>
+
+      <div class="row">
+        <div class="row-text">
+          <span class="row-title">Import</span>
+          <span class="row-desc">JSON-Datei importieren. Vorhandene Notizen werden zusammengeführt.</span>
+        </div>
+        <div class="btn-group">
+          <button id="importBtn" class="btn">Importieren</button>
+          <input type="file" id="importFile" accept="application/json" hidden>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="row-text">
+          <span class="row-title">Alle Notizen löschen</span>
+          <span class="row-desc">Entfernt alle gespeicherten Notizen unwiderruflich.</span>
+        </div>
+        <button id="clearBtn" class="btn btn-danger">Löschen</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Tastenkürzel</h2>
+      <p class="hint">Shortcuts können unter <code>chrome://extensions/shortcuts</code> geändert werden.</p>
+      <ul class="shortcuts">
+        <li><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd> — Neue Notiz auf aktueller Seite</li>
+        <li><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> — Alle Notizen ein-/ausblenden</li>
+      </ul>
+    </section>
+
+    <p id="status" class="status"></p>
+  </main>
+
+  <script src="shared.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

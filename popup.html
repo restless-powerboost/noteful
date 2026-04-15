@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <h1 id="domain">Noteful</h1>
+  </header>
+  <div class="toolbar">
+    <button id="newBtn" class="btn-primary">+ Neue Notiz</button>
+    <div class="toolbar-row">
+      <button id="showAllBtn" class="btn-ghost">Alle einblenden</button>
+      <button id="hideAllBtn" class="btn-ghost">Alle ausblenden</button>
+    </div>
+    <div class="search-wrap">
+      <input type="search" id="searchInput" placeholder="Alle Notizen durchsuchen...">
+    </div>
+  </div>
+  <ul id="notesList"></ul>
+  <p id="emptyState" class="hidden">Noch keine Notizen auf dieser Seite.</p>
+  <p id="noResults" class="hidden">Keine Treffer.</p>
+  <p id="errorState" class="hidden"></p>
+  <footer class="footer">
+    <button id="optionsBtn" class="link-btn">Einstellungen…</button>
+  </footer>
+  <div id="undoToast" class="toast hidden">
+    <span id="undoText">Notiz gelöscht</span>
+    <button id="undoBtn">Rückgängig</button>
+  </div>
+  <script src="shared.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

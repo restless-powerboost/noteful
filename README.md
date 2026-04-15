@@ -4,6 +4,8 @@ Sticky notes on any website — draggable, resizable, Markdown, reminders, sync.
 
 A Chrome extension (Manifest V3) that overlays Post-it-style notes on any http(s) page. No account, no tracking, fully usable offline.
 
+![Noteful in action](docs/screenshot-in-action.jpg)
+
 ## Features
 
 - Place notes at any position on any website
@@ -27,6 +29,10 @@ A Chrome extension (Manifest V3) that overlays Post-it-style notes on any http(s
 4. Click "Load unpacked" and select this folder
 
 The extension appears in the toolbar. Open any http/https page and click the icon to create your first note.
+
+## Settings
+
+![Settings page](docs/screenshot-settings.jpg)
 
 ## Project structure
 
